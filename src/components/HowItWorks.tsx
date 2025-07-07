@@ -8,26 +8,22 @@ const HowItWorks = () => {
     {
       icon: '📊',
       title: 'Análise Profunda',
-      description: 'O bot usa estatísticas reais dos últimos confrontos, desempenho dos times e tendências de mercado para criar predições precisas.',
-      delay: '0'
+      description: 'O bot usa estatísticas reais dos últimos confrontos, desempenho dos times e tendências de mercado para criar predições precisas.'
     },
     {
       icon: '🤖',
       title: 'IA Explicativa',
-      description: 'Nossa IA responde com linguagem humana explicando exatamente por que cada aposta é recomendada, aumentando sua confiança.',
-      delay: '200'
+      description: 'Nossa IA responde com linguagem humana explicando exatamente por que cada aposta é recomendada, aumentando sua confiança.'
     },
     {
       icon: '🎯',
       title: 'Múltiplas Inteligentes',
-      description: 'Você define o risco e odd desejada, nosso bot monta automaticamente as melhores combinações para maximizar seus lucros.',
-      delay: '400'
+      description: 'Você define o risco e odd desejada, nosso bot monta automaticamente as melhores combinações para maximizar seus lucros.'
     },
     {
       icon: '📷',
       title: 'Análise de Bilhetes',
-      description: 'Envie um print do seu bilhete e receba feedback instantâneo sobre a qualidade das suas apostas e sugestões de melhoria.',
-      delay: '600'
+      description: 'Envie um print do seu bilhete e receba feedback instantâneo sobre a qualidade das suas apostas e sugestões de melhoria.'
     }
   ];
 
@@ -39,13 +35,14 @@ const HowItWorks = () => {
             const cards = entry.target.querySelectorAll('.feature-card');
             cards.forEach((card, index) => {
               setTimeout(() => {
-                card.classList.add('animate-slide-up');
-              }, index * 100);
+                card.classList.remove('opacity-0', 'translate-y-8');
+                card.classList.add('opacity-100', 'translate-y-0');
+              }, index * 200);
             });
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.3, rootMargin: '0px 0px -50px 0px' }
     );
 
     if (sectionRef.current) {
@@ -71,8 +68,7 @@ const HowItWorks = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="feature-card glass-card p-8 text-center hover:scale-105 transition-all duration-500 group opacity-0"
-              style={{ animationDelay: `${feature.delay}ms` }}
+              className="feature-card glass-card p-8 text-center hover:scale-105 transition-all duration-500 group opacity-0 translate-y-8"
             >
               <div className="text-6xl mb-6 animate-float group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}

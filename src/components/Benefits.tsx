@@ -51,13 +51,14 @@ const Benefits = () => {
             const cards = entry.target.querySelectorAll('.benefit-card');
             cards.forEach((card, index) => {
               setTimeout(() => {
-                card.classList.add('animate-scale-in');
+                card.classList.remove('opacity-0', 'translate-y-8');
+                card.classList.add('opacity-100', 'translate-y-0');
               }, index * 150);
             });
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.3, rootMargin: '0px 0px -50px 0px' }
     );
 
     if (sectionRef.current) {
@@ -83,7 +84,7 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div
               key={index}
-              className="benefit-card glass-card p-8 text-center hover:scale-105 transition-all duration-500 group opacity-0 cursor-pointer"
+              className="benefit-card glass-card p-8 text-center hover:scale-105 transition-all duration-500 group opacity-0 translate-y-8 cursor-pointer"
             >
               <div className={`w-20 h-20 rounded-full bg-gradient-to-r ${benefit.color} mx-auto mb-6 flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300`}>
                 {benefit.icon}
